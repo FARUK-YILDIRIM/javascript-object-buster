@@ -28,6 +28,22 @@ class ObjectBuster {
       }
     }
   }
+
+  checkUndefined(obj) {
+    this._checkObject(obj);
+    const keys = Object.keys(obj);
+    for (const key of keys) {
+      const value = obj[key];
+
+      if (value === undefined) {
+        throw new Error(`Property '${key}' cannot be undefined.`);
+      }
+
+      if (value && typeof value === "object") {
+        this.checkUndefined(value);
+      }
+    }
+  }
 }
 
 module.exports = new ObjectBuster();
