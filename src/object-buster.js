@@ -44,6 +44,22 @@ class ObjectBuster {
       }
     }
   }
+
+  checkNull(obj) {
+    this._checkObject(obj);
+    const keys = Object.keys(obj);
+    for (const key of keys) {
+      const value = obj[key];
+
+      if (value === null) {
+        throw new Error(`Property '${key}' cannot be null.`);
+      }
+
+      if (typeof value === "object" && value !== null) {
+        this.checkNull(value);
+      }
+    }
+  }
 }
 
 module.exports = new ObjectBuster();
