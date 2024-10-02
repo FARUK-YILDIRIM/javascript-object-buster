@@ -1,0 +1,12 @@
+{
+  "name": "javascript-object-buster",
+  "version": "1.0.0",
+  "description": "A library that ensures that required JavaScript object values exist.", 
+  "main": "src/object-buster.js",
+  "scripts": {
+    "test": "npx jest src/object-buster.test.js" 
+  },
+  "keywords": ["javascript", "utility", "mandatory", "objects", "validation"], 
+  "author": "Ö. Faruk YILDIRIM",
+  "license": "ISC"
+}
