@@ -1,14 +1,25 @@
 class ObjectBuster {
+  /**
+   * Checks if the provided object is a non-empty object.
+   * @param {Object} obj - The object to check.
+   * @throws {Error} If the object is not a non-empty object.
+   */
   _checkObject(obj) {
     if (
       typeof obj !== "object" ||
       obj === null ||
       Object.keys(obj).length === 0
     ) {
-      throw new Error(`Expected a non-empty object`);
+      throw new Error("Expected a non-empty object");
     }
   }
 
+  /**
+   * Strictly checks the properties of the object.
+   * Checks for undefined, empty, and null properties.
+   * @param {Object} obj - The object to validate.
+   * @throws {Error} If any property is undefined, null, empty string, empty array, or empty object.
+   */
   strict(obj) {
     this._checkObject(obj);
     const keys = Object.keys(obj);
@@ -43,6 +54,11 @@ class ObjectBuster {
     }
   }
 
+  /**
+   * Checks the object for undefined or null properties.
+   * @param {Object} obj - The object to validate.
+   * @throws {Error} If any property is undefined.
+   */
   must(obj) {
     this._checkObject(obj);
     const keys = Object.keys(obj);
@@ -63,6 +79,11 @@ class ObjectBuster {
     }
   }
 
+  /**
+   * Checks the object for undefined properties recursively.
+   * @param {Object} obj - The object to validate.
+   * @throws {Error} If any property is undefined.
+   */
   checkUndefined(obj) {
     this._checkObject(obj);
     const keys = Object.keys(obj);
@@ -79,6 +100,11 @@ class ObjectBuster {
     }
   }
 
+  /**
+   * Checks the object for null properties recursively.
+   * @param {Object} obj - The object to validate.
+   * @throws {Error} If any property is null.
+   */
   checkNull(obj) {
     this._checkObject(obj);
     const keys = Object.keys(obj);
@@ -95,6 +121,11 @@ class ObjectBuster {
     }
   }
 
+  /**
+   * Checks the object for empty properties recursively.
+   * @param {Object} obj - The object to validate.
+   * @throws {Error} If any property is an empty string, empty array, or empty object.
+   */
   checkEmpty(obj) {
     this._checkObject(obj);
     const keys = Object.keys(obj);
